@@ -1,0 +1,42 @@
+
+<div class="container">
+<img src="assets/img/logo.png" alt="Git profile pic" style="height: 10%; width: 10%;">
+
+<form [formGroup]="cadastroForm" (ngSubmit)="cadastroUser()">
+  <div class="form-group">
+    <label for="name">User Name</label>
+    <input
+      type="text"
+      id="userName"
+      formControlName="userName"
+      class="form-control">
+      <small *ngIf="cadastroForm.get('userName')?.errors?.required && (cadastroForm.get('userName')?.touched)"> User name requerido </small>
+      <small *ngIf="cadastroForm.get('userName')?.errors?.minLength && (cadastroForm.get('userName')?.touched)"> User Name muito curto</small>
+      <small *ngIf="cadastroForm.get('userName')?.errors?.maxLength && (cadastroForm.get('userName')?.touched)"> User Name muito longo</small>
+
+  </div>
+  <div class="form-group">
+    <label for="email">E-Mail</label>
+    <input
+      type="email"
+      id="email"
+      formControlName="email"
+      class="form-control">
+      <small *ngIf="cadastroForm.get('email')?.errors?.required && (cadastroForm.get('email')?.touched)"> E-mail requerido </small>
+      <small *ngIf="cadastroForm.get('email')?.errors?.email && (cadastroForm.get('email')?.touched)"> Não é e-mail </small>
+  </div>
+  <div class="form-group">
+    <label for="password">Senha</label>
+    <input
+      type="password"
+      id="password"
+      formControlName="password"
+      class="form-control">
+  </div>
+  <small *ngIf="cadastroForm.get('password')?.errors?.required && (cadastroForm.get('password')?.touched)"> Senha requerida </small>
+  <small *ngIf="cadastroForm.get('password')?.errors?.minLength && (cadastroForm.get('password')?.touched)"> Senha muito curta</small>
+
+  <p></p>
+  <button class="btn btn-primary" type="submit">Criar User</button>
+</form>
+</div>
