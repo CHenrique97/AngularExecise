@@ -1,8 +1,11 @@
-
-<div class="card" style="width: 18rem;">
-    <img src={{image.url}} class="card-img-top" alt="...">
+<div class="container">
+<div class="row">
+<div class="card" style="width: 18rem;" *ngFor="let item of images">
+    <img src={{item.url}} class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{image.description}}</h5>
+      <h5 class="card-title">{{item.description}}</h5>
 
     </div>
   </div>
+</div>
+</div>

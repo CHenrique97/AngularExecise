@@ -12,7 +12,7 @@ import {User} from './user';
 export class LoginComponent implements OnInit {
 
   cadastroForm: FormGroup; 
-
+  
   constructor(
     private _regService: RegisterService ,
     private _route : Router
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     if  (this.cadastroForm.valid && !this.cadastroForm.pending){
       const newUser = this.cadastroForm.getRawValue() as User;
       this._regService.registerUser(newUser).subscribe(
-        ()=> console.log("done")
+        ()=> this._route.navigate(['/gallery/', newUser.userName])
       );
     }
     console.log("TBD")

@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PhotoGalleryComponent implements OnInit {
   
-  image:any;
+  images:any[];
   constructor(
     private _galleryService:GalleryService,
     private _activeRoute:ActivatedRoute
@@ -16,7 +16,8 @@ export class PhotoGalleryComponent implements OnInit {
 
   ngOnInit(): void {
     const user = this._activeRoute.snapshot.params.username;
-    this._galleryService.images(user).subscribe(photos => this.image = photos);
+    this._galleryService.images(user).subscribe(photos => this.images = photos.gallery);
+    console.log(this.images);
   }
 
 }

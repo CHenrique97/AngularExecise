@@ -2,10 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
-interface galObject  {
-  id : string;
+export interface Gallery {
   url: string;
-  description:string
+  description: string;
+}
+interface galObject  {
+  id: string;
+  gallery: Gallery[];
 
 }
 @Injectable({
